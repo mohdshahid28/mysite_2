@@ -6,6 +6,17 @@
     <title>home</title>
 </head>
 <body>
-    this is indax home page
+    <h1>name of invoices</h1>
+    {% for inf in all_in  %}
+    <p>{{inf.number}}. is name {{inf.name}} and his bil is {{inf.amount}}rs.
+    </p>{% endfor %}
+
+    <h2>high pendingv invoices is</h2>
+    {% for inf in all_in  %}
+    {% if inf.amount > 30000 %}
+    <p>{{inf.number}}. is name {{inf.name}} and his bil is {{inf.amount}}rs. </p>
+    {% endif %}
+    {% endfor %}
+    
 </body>
 </html>
