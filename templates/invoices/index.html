@@ -1,11 +1,78 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>home</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block css %}
+<style>body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+    margin: 0;
+    padding: 30px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #007bff;
+    text-align: center;
+    margin-bottom: 25px;
+    text-transform: capitalize;
+}
+
+h2 {
+    color: #dc3545;
+    margin-top: 35px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+p {
+    background-color: #f8f9fa;
+    padding: 15px;
+    margin: 12px 0;
+    border-left: 4px solid #007bff;
+    border-radius: 5px;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+h2 + p {
+    border-left-color: #dc3545;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 18px;
+        margin: 10px auto;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+}</style>
+{% endblock %}
+
+{% block title %}home{% endblock %}
+
+{% block body %}
+<div class="container mx-2">
     <h1>name of invoices</h1>
     {% for inf in all_in  %}
     <p>{{inf.number}}. is name {{inf.name}} and his bil is {{inf.amount}}rs.
@@ -17,6 +84,5 @@
     <p>{{inf.number}}. is name {{inf.name}} and his bil is {{inf.amount}}rs. </p>
     {% endif %}
     {% endfor %}
-    
-</body>
-</html>
+    </div>
+{% endblock %}
