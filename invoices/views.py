@@ -15,3 +15,5 @@ def index(request):
 
 def contact(request):
     return render(request, 'invoices/contact.html')
+def contact(request):
+    return render(request, 'invoices/contact.html')
