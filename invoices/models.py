@@ -1,14 +1,19 @@
 from django.db import models
-
+from django.utils import timezone
 # Create your models here.
+
 class Invoice(models.Model):
-    cust_name = models.CharField(max_length=500),
-    invoice_num = models.CharField(max_length=50),
-    amount = models.DecimalField(max_digits=10, decimal_places=2)
-    age = models.IntegerField()
-    date = models.DateField(auto_now_add=True)
+    cust_name = models.CharField(max_length=500,default="")
+    invoice_num = models.CharField(max_length=50, default="")
+    dis = models.CharField(max_length=50, default="")
+    address = models.CharField(max_length=500, default="")
+    amount = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+    age = models.IntegerField(default=0)
+    number = models.IntegerField(default=0)
+    date = models.DateField(default=timezone.now)
     is_paid = models.BooleanField(default=False)
 
+
     def __str__(self):
-        return self.invoice_num - self.cust_name
+        return self.cust_name
    
