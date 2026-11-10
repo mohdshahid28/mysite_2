@@ -8,7 +8,7 @@ class InvoiceAdmin(admin.ModelAdmin):
     ]
     search_fields=['cust_name', 'invoice_num']
     list_filter= ['is_paid','date']
-    ordering=['date'y]
+    ordering=['date']
 
 
 admin.site.register(Invoice,InvoiceAdmin)
