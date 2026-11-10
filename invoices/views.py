@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Invoice
+from .forms import InvoiceForm
 # Create your views here.
 
 # create a new record
@@ -45,6 +46,24 @@ def index(request):
         ]
     }
     return render(request, 'invoices/index.html', data)
+
+
+def add_invoice(request):
+    if request.method == 'POST':
+        form = InvoiceForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+    else:
+        form = InvoiceForm()
+
+    data = {
+        'form':form
+    }
+    print(form)
+    return render(request, 'invoices/add_invoice.html',data)
+
+
 
 def contact(request):
     return render(request, 'invoices/contact.html')

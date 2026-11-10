@@ -6,5 +6,5 @@ urlpatterns = [
     path('contact', views.contact, name='contact'),
     path('show_one_invoice', views.show_one_invoice, name='show_one_invoice'),
     path('create_onvoice', views.create_onvoice, name='create_onvoice'),
-
+    path('add', views.add_invoice, name='add_invoice'),
 ]
