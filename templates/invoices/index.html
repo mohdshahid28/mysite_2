@@ -1,23 +1,43 @@
+
 {% extends "base.html" %}
 {% load static %}
+
 {% block css %}
 <link rel="stylesheet" href="{% static 'css/homestyle.css' %}">
 {% endblock %}
 
-{% block title %}home{% endblock %}
+{% block title %}Home{% endblock %}
 
 {% block body %}
-<div class="container mx-2">
-    <h1>name of invoices</h1>
-    {% for inf in all_in  %}
-    <p>{{inf.number}}. is name {{inf.name}} and his bil is {{inf.amount}}rs.
-    </p>{% endfor %}
 
-    <h2>high pendingv invoices is</h2>
-    {% for inf in all_in  %}
-    {% if inf.amount > 30000 %}
-    <p>{{inf.number}}. is name {{inf.name}} and his bil is {{inf.amount}}rs. </p>
-    {% endif %}
-    {% endfor %}
+<div class="container my-4">
+
+    <h2>All Invoices</h2>
+
+    {% for inf in all_in %}
+
+    <div class="d-flex align-items-center justify-content-between border-bottom py-3">
+
+        <span>{{ inf.cust_name }}</span>
+
+        <span>Invoice: {{ inf.invoice_num }}</span>
+
+        {% if inf.is_paid %}
+            <span class="text-success">Paid</span>
+        {% else %}
+            <span class="text-danger">Unpaid</span>
+        {% endif %}
+
+        <a href="#" class="btn btn-primary btn-sm">View</a>
+
     </div>
+
+    {% empty %}
+
+    <p>No invoices found.</p>
+
+    {% endfor %}
+
+</div>
+
 {% endblock %}

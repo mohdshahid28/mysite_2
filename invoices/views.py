@@ -37,13 +37,10 @@ def show_unpaid(request):
     return render(request, 'invoices/index.html', data) 
 
 def index(request):
+    all_in=Invoice.objects.all()
     data ={
-        'all_in':[
-            {'number':1, 'name':'shahid', 'amount':3000},
-            {'number':2, 'name':'arbaz', 'amount':30000},
-            {'number':3, 'name':'sameer', 'amount':35000},
-            {'number':4, 'name':'akhtar', 'amount':400000}
-        ]
+        'all_in':all_in
+        
     }
     return render(request, 'invoices/index.html', data)
 
@@ -60,7 +57,7 @@ def add_invoice(request):
     data = {
         'form':form
     }
-    print(form)
+    
     return render(request, 'invoices/add_invoice.html',data)
 
 
