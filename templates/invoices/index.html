@@ -21,6 +21,7 @@
         <span>{{ inf.cust_name }}</span>
 
         <span>Invoice: {{ inf.invoice_num }}</span>
+        <span>{{ inf.date }}</span>
 
         {% if inf.is_paid %}
             <span class="text-success">Paid</span>
@@ -28,7 +29,8 @@
             <span class="text-danger">Unpaid</span>
         {% endif %}
 
-        <a href="#" class="btn btn-primary btn-sm">View</a>
+        <a href="#" class="btn btn-primary btn-sm">update</a>
+        <a href="#" class="btn btn-danger btn-sm">delete</a>
 
     </div>
 
